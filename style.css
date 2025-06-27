@@ -1,0 +1,252 @@
+/* style.css */
+:root {
+    --primary-color: #FFA07A; /* ライトサーモン */
+    --secondary-color: #FFF0F5; /* ラベンダーブラッシュ */
+    --accent-color: #87CEEB; /* スカイブルー */
+    --text-color: #5D4037; /* ブラウン系 */
+    --background-color: #FFFAF0; /* フローラルホワイト */
+    --font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* --- Animation --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- General --- */
+.content-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background-color: var(--secondary-color);
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.cta-button:hover {
+    background-color: #FA8072; /* サーモン */
+    transform: translateY(-3px);
+}
+
+/* --- Overview Section --- */
+#overview .overview-details p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.map-container {
+    border: 2px solid var(--secondary-color);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+/* --- Vendors Section --- */
+.vendor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--secondary-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.child-point {
+    background-color: #FFF7E1; /* パステルイエロー */
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 0.9rem;
+    margin: 15px 0;
+    color: #8D6E63; /* ブラウン系 */
+}
+
+.child-point span {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.sns-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.sns-button {
+    text-decoration: none;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+.sns-button:hover { opacity: 0.8; }
+
+.sns-button.insta { background-color: #E1306C; }
+.sns-button.x { background-color: #1DA1F2; }
+
+/* --- Guide Section --- */
+.guide-list {
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.guide-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.guide-list .icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    width: 35px;
+    color: var(--accent-color);
+}
+
+/* --- FAQ Section --- */
+.faq-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-container details {
+    background: #fff;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+.faq-container summary {
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none; /* Safari */
+}
+
+.faq-container summary::-webkit-details-marker { display: none; } /* Chrome */
+
+.faq-container summary::after {
+    content: '＋';
+    float: right;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.faq-container details[open] summary::after {
+    content: '−';
+}
+
+.faq-container p {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--secondary-color);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .content-section h2 { font-size: 1.8rem; }
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1rem; }
+    .vendor-cards { grid-template-columns: 1fr; }
+}
