@@ -1,128 +1,417 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>週末限定マルシェ HARUMARU 市</title>
-    <link rel="stylesheet" href="style.css">
+    <title>HARUMARUマルシェ - 週末だけの、ちいさなごほうび</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config={
+            theme:{
+                extend:{
+                    colors:{
+                        primary:'#FF9D6C',
+                        secondary:'#FFD8A9'
+                    },
+                    borderRadius:{
+                        'none':'0px',
+                        'sm':'4px',
+                        DEFAULT:'8px',
+                        'md':'12px',
+                        'lg':'16px',
+                        'xl':'20px',
+                        '2xl':'24px',
+                        '3xl':'32px',
+                        'full':'9999px',
+                        'button':'50px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        .font-noto {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .hero-section {
+            background-image: url('https://readdy.ai/api/search-image?query=A%20vibrant%20and%20lively%20outdoor%20market%20scene%20with%20people%20browsing%20stalls%20selling%20fresh%20produce%2C%20handmade%20crafts%2C%20and%20food.%20The%20atmosphere%20is%20cheerful%20and%20inviting%20with%20pastel%20colors%20dominating%20the%20scene.%20Focus%20on%20the%20diversity%20of%20products%20and%20the%20interactions%20between%20vendors%20and%20customers.%20Ensure%20the%20market%20scene%20clearly.%20The%20overall%20mood%20is%20cheerful%20and%20inviting%20with%20pastel%20colors.&width=1600&height=800&seq=hero123&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
 </head>
-<body>
-
-    <header class="hero">
-        <div class="hero-content fade-in-section">
-            <h1>週末だけの、ちいさなごほうび</h1>
-            <p>春巻きママが企画する “HARUMARU マルシェ” 今週末開催！</p>
-            <a href="#reserve" id="cta-reserve" class="cta-button">来場予約はこちら</a>
+<body class="bg-white font-noto">
+    <!-- ナビゲーション -->
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-2xl font-['Pacifico'] text-primary">HARUMARU</div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="text-gray-700 hover:text-primary transition">イベント概要</a>
+                <a href="#shops" class="text-gray-700 hover:text-primary transition">出店者</a>
+                <a href="#guide" class="text-gray-700 hover:text-primary transition">楽しみ方</a>
+                <a href="#benefits" class="text-gray-700 hover:text-primary transition">特典</a>
+                <a href="#reservation" class="text-gray-700 hover:text-primary transition">予約</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-700 focus:outline-none">
+                    <i class="ri-menu-line ri-xl"></i>
+                </button>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section id="overview" class="content-section fade-in-section">
-            <h2>イベント概要</h2>
-            <div class="overview-details">
-                <p><strong>日時:</strong> 2025年7月6日（日）10:00-16:00</p>
-                <p><strong>場所:</strong> 杉並区○○公園ひろば</p>
+    <!-- ヒーローセクション -->
+    <section class="hero-section bg-cover bg-center h-[60vh] flex items-center justify-center text-white relative">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="text-center z-10 p-4">
+            <h1 class="text-5xl font-bold mb-4 font-pacifico">HARUMARUマルシェ</h1>
+            <p class="text-xl mb-8">週末だけの、ちいさなごほうび</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#reservation" class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition text-center">来場予約はこちら</a>
+                <a href="#shops" class="bg-white border border-gray-300 text-gray-700 px-6 py-3 !rounded-button whitespace-nowrap hover:bg-gray-50 transition text-center">出店者一覧を見る</a>
             </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.488233838223!2d139.636393315259!3d35.68948798019224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018ed85f5d9e5a5%3A0x3b5a6926d1b918a!2z5p2g5L2466eJ55Kw5Y2I5Y-L!5e0!3m2!1sja!2sjp!4v1625461234567!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="開催場所の地図"></iframe>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="vendors" class="content-section fade-in-section">
-            <h2>出店者のみなさん</h2>
-            <div class="vendor-cards">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1509440159596-024908877212?q=80&w=800" alt="自家製酵母パン">
-                    <div class="card-content">
-                        <h3>自家製酵母パン「pan cocoro」</h3>
-                        <p>噛むほどに味わい深い、国産小麦のパン。</p>
-                        <p class="child-point"><span>POINT</span>アレルギー対応のパンあります！</p>
-                        <div class="sns-links">
-                            <a href="#" class="sns-button insta">Instagram</a>
-                            <a href="#" class="sns-button x">X</a>
+    <!-- イベント概要 -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">イベント概要</h2>
+            <div class="bg-white rounded-lg shadow-sm p-8 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                                <i class="ri-calendar-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-lg mb-1">日時</h3>
+                                <p>2025年7月6日（日）10:00 - 16:00</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                                <i class="ri-map-pin-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-lg mb-1">場所</h3>
+                                <p>杉並区○○公園ひろば</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                                <i class="ri-information-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-lg mb-1">参加費</h3>
+                                <p>入場無料</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                                <i class="ri-cloud-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-lg mb-1">雨天時</h3>
+                                <p>雨天中止（小雨決行）</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd0315b8813?q=80&w=800" alt="キッチンカー">
-                     <div class="card-content">
-                        <h3>キッチンカー「shirokuma」</h3>
-                        <p>ふわふわ氷と自家製シロップのかき氷。</p>
-                        <p class="child-point"><span>POINT</span>小さなお子様向けミニサイズあります！</p>
-                        <div class="sns-links">
-                            <a href="#" class="sns-button insta">Instagram</a>
-                            <a href="#" class="sns-button x">X</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1516451969278-13342614b0e2?q=80&w=800" alt="手作り雑貨">
-                     <div class="card-content">
-                        <h3>手作り雑貨「おやこのアトリエ」</h3>
-                        <p>親子で使える、ぬくもりある布小物。</p>
-                        <p class="child-point"><span>POINT</span>赤ちゃんが口にしても安心の自然素材です。</p>
-                        <div class="sns-links">
-                            <a href="#" class="sns-button insta">Instagram</a>
-                            <a href="#" class="sns-button x">X</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1541544331-7589471735b8?q=80&w=800" alt="スープ">
-                     <div class="card-content">
-                        <h3>春巻きママのほっこりスープ屋</h3>
-                        <p>旬の野菜をたっぷり使った、優しい味のスープ。</p>
-                        <p class="child-point"><span>POINT</span>薄味なので離乳食にも取り分けOK！</p>
-                        <div class="sns-links">
-                            <a href="#" class="sns-button insta">Instagram</a>
-                            <a href="#" class="sns-button x">X</a>
-                        </div>
+                    <div class="h-64 md:h-auto rounded overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.488233838223!2d139.636393315259!3d35.68948798019224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018ed85f5d9e5a5%3A0x3b5a6926d1b918a!2z5p2g5L2466eJ55Kw5Y2I5Y-L!5e0!3m2!1sja!2sjp!4v1625461234567!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="guide" class="content-section fade-in-section">
-            <h2>楽しみ方 & 設備</h2>
-            <ul class="guide-list">
-                <li><span class="icon">📸</span> かわいいフォトブースで記念撮影</li>
-                <li><span class="icon">🧺</span> 公園でのんびりピクニックもOK</li>
-                <li><span class="icon">🎨</span> 子ども向けミニワークショップ開催</li>
-                <li><span class="icon">🍼</span> 授乳スペースあります</li>
-                <li><span class="icon">👶</span> おむつ替え台をご利用ください</li>
-                <li><span class="icon">🛒</span> ベビーカー置き場はこちら</li>
-            </ul>
-        </section>
-
-        <section id="faq" class="content-section fade-in-section">
-            <h2>よくある質問</h2>
-            <div class="faq-container">
-                <details>
-                    <summary>雨天の場合はどうなりますか？</summary>
-                    <p>小雨決行です。荒天の場合は、前日の18時までに公式サイトおよびSNSにて中止のご連絡をいたします。</p>
-                </details>
-                <details>
-                    <summary>駐車場・駐輪場はありますか？</summary>
-                    <p>申し訳ありませんが、専用の駐車場はございません。公共交通機関をご利用いただくか、近隣のコインパーキングをご利用ください。駐輪場は公園のものをご利用いただけます。</p>
-                </details>
-                <details>
-                    <summary>来場に予約は必要ですか？</summary>
-                    <p>予約は不要で、どなたでもご自由にお越しいただけます。事前にご予約いただいた方には、当日受付でささやかなプレゼントをお渡しします。</p>
-                </details>
+    <!-- 出店者紹介 -->
+    <section id="shops" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">出店者紹介</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 出店者1 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Freshly%20baked%20artisan%20bread%20on%20a%20wooden%20cutting%20board%20in%20a%20bakery%20setting%20with%20natural%20light.%20The%20bread%20has%20a%20beautiful%20golden%20crust%20with%20some%20flour%20dusting.%20The%20background%20shows%20a%20cozy%20bakery%20atmosphere%20with%20neutral%20colors.&width=600&height=400&seq=bread123&orientation=landscape" alt="自家製酵母パン" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">自家製酵母パン「pan cocoro」</h3>
+                        <p class="text-gray-600">地元の有機小麦を使用した、もちもち食感の自家製酵母パン。季節の素材を取り入れた限定商品も販売します。</p>
+                    </div>
+                </div>
+                <!-- 出店者2 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=A%20vibrant%20and%20colorful%20food%20truck%20specializing%20in%20shaved%20ice%20or%20desserts%20at%20an%20outdoor%20event.%20The%20truck%20is%20decorated%20with%20playful%20illustrations%20and%20bright%20colors.%20There%20are%20people%20around%20the%20truck%2C%20enjoying%20their%20treats.%20The%20scene%20is%20lively%20and%20inviting.&width=600&height=400&seq=foodtruck123&orientation=landscape" alt="キッチンカー" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">オーガニックかき氷「shirokuma」</h3>
+                        <p class="text-gray-600">旬のフルーツをたっぷり使った、ふわふわ食感のかき氷。オーガニックシロップで体にも優しい一品です。</p>
+                    </div>
+                </div>
+                <!-- 出店者3 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Handmade%20crafts%20and%20accessories%20displayed%20on%20a%20market%20stall.%20Items%20include%20colorful%20fabric%20items%2C%20handcrafted%20jewelry%2C%20and%20small%20art%20pieces.%20The%20display%20has%20a%20warm%2C%20inviting%20aesthetic%20with%20natural%20materials%20and%20soft%20colors.%20The%20crafts%20appear%20to%20be%20made%20with%20care%20and%20attention%20to%20detail.&width=600&height=400&seq=craft123&orientation=landscape" alt="手作り雑貨" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">手作り雑貨「おやこのアトリエ」</h3>
+                        <p class="text-gray-600">親子で作る手作りアクセサリーや布小物。ワークショップも開催予定です。</p>
+                    </div>
+                </div>
+                <!-- 出店者4 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=A%20warm%20and%20inviting%20bowl%20of%20vegetable%20soup%20with%20fresh%20ingredients%20and%20a%20steaming%20effect.%20The%20soup%20is%20garnished%20with%20herbs%20and%20served%20in%20a%20rustic%20bowl%20on%20a%20wooden%20table.%20The%20lighting%20is%20soft%20and%20natural%2C%20emphasizing%20the%20comforting%20aspect%20of%20the%20dish.&width=600&height=400&seq=soup123&orientation=landscape" alt="スープ" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">春巻きママの"ほっこりスープ屋"</h3>
+                        <p class="text-gray-600">地元野菜をたっぷり使った体に優しいスープ。マルシェ限定の特別レシピもご用意しています。ぜひお立ち寄りください！</p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+    <!-- 楽しみ方ガイド -->
+    <section id="guide" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">楽しみ方ガイド</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- フォトブース -->
+                <div class="bg-white rounded-lg p-6 shadow-sm text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto bg-primary bg-opacity-10 rounded-full mb-4">
+                        <i class="ri-camera-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">フォトブース</h3>
+                    <p class="text-gray-600">マルシェの思い出を写真に残そう！かわいい装飾のフォトブースをご用意しています。</p>
+                </div>
+                <!-- ピクニックOK -->
+                <div class="bg-white rounded-lg p-6 shadow-sm text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto bg-primary bg-opacity-10 rounded-full mb-4">
+                        <i class="ri-leaf-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">ピクニックOK</h3>
+                    <p class="text-gray-600">公園の広場でピクニックも楽しめます。レジャーシートや軽食を持ち込んで、一日中満喫してください。</p>
+                </div>
+                <!-- 子ども向けワークショップ -->
+                <div class="bg-white rounded-lg p-6 shadow-sm text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto bg-primary bg-opacity-10 rounded-full mb-4">
+                        <i class="ri-palette-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">子ども向けワークショップ</h3>
+                    <p class="text-gray-600">スライム作りや簡単な工作など、お子様が楽しめるワークショップを開催します。当日参加も可能です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="fade-in-section">
-        <p>主催: HARUMARU市実行委員会</p>
-        <p>&copy; 2025 HARUMARU Marche</p>
+    <!-- 事前予約特典 -->
+    <section id="benefits" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">事前予約特典</h2>
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">来場予約で素敵なプレゼント！</h3>
+                        <p class="text-gray-600 mb-6">事前予約いただいた方には、マルシェ当日受付にてHARUMARUマルシェオリジナルエコバッグをプレゼント！</p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                    <i class="ri-gift-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg">オリジナルエコバッグ</h4>
+                                    <p class="text-sm text-gray-500">マルシェのロゴ入り、使いやすいサイズのエコバッグです。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                    <i class="ri-coupon-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg">LINE限定クーポン</h4>
+                                    <p class="text-sm text-gray-500">公式LINEに登録すると、マルシェで使えるお得なクーポンをお届けします！</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#reservation" class="inline-block bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition">今すぐ予約する</a>
+                    </div>
+                    <div class="bg-gray-100">
+                        <img src="https://readdy.ai/api/search-image?query=An%20eco-friendly%20canvas%20tote%20bag%20with%20a%20cute%2C%20minimalist%20design%20featuring%20a%20small%20market%20or%20food-related%20illustration.%20The%20bag%20is%20photographed%20against%20a%20clean%2C%20light%20background.%20The%20tote%20bag%20has%20a%20natural%20beige%20color%20with%20a%20simple%2C%20elegant%20design%20printed%20in%20soft%20colors.&width=600&height=600&seq=tote123&orientation=squarish" alt="HARUMARUマルシェオリジナルエコバッグ" class="w-full h-full object-cover object-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SNSセクション -->
+    <section id="sns" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">SNSで最新情報をチェック！</h2>
+            <div class="flex justify-center items-center space-x-6 mb-8">
+                <a href="#" class="w-14 h-14 flex items-center justify-center bg-pink-50 rounded-full hover:bg-pink-100 transition">
+                    <i class="ri-instagram-line ri-xl text-pink-600"></i>
+                </a>
+                <a href="#" class="w-14 h-14 flex items-center justify-center bg-blue-50 rounded-full hover:bg-blue-100 transition">
+                    <i class="ri-twitter-x-line ri-xl text-gray-800"></i>
+                </a>
+                <a href="#" class="w-14 h-14 flex items-center justify-center bg-green-50 rounded-full hover:bg-green-100 transition">
+                    <i class="ri-line-line ri-xl text-green-600"></i>
+                </a>
+            </div>
+            <div class="bg-primary bg-opacity-10 p-4 rounded-lg inline-block">
+                <p class="font-medium text-primary mb-2">当日のSNS投稿でチャンス！</p>
+                <p class="text-gray-600 text-sm">ハッシュタグ「#harumaru市」をつけて投稿すると、抽選で素敵なプレゼントが当たります。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 予約フォーム -->
+    <section id="reservation" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">来場予約フォーム</h2>
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-8">
+                <form>
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-700 font-medium mb-2">お名前 <span class="text-red-500">*</span></label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="例: 春巻き 太郎" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">メールアドレス <span class="text-red-500">*</span></label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="例: example@mail.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">電話番号 (任意)</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="例: 090-1234-5678">
+                    </div>
+                    <div class="mb-6">
+                        <label for="attendees" class="block text-gray-700 font-medium mb-2">来場人数 <span class="text-red-500">*</span></label>
+                        <select id="attendees" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pr-8" required>
+                            <option value="1">1人</option>
+                            <option value="2">2人</option>
+                            <option value="3">3人</option>
+                            <option value="4">4人</option>
+                            <option value="5">5人以上</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">興味のある出店者（複数選択可）</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <div class="relative w-5 h-5 mr-2">
+                                    <input type="checkbox" id="shop1" class="opacity-0 absolute w-full h-full cursor-pointer">
+                                    <div class="w-5 h-5 border border-gray-300 rounded flex items-center justify-center bg-white">
+                                        <div class="hidden w-3 h-3 bg-primary rounded-sm"></div>
+                                    </div>
+                                </div>
+                                <label for="shop1" class="cursor-pointer">自家製酵母パン「pan cocoro」</label>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="relative w-5 h-5 mr-2">
+                                    <input type="checkbox" id="shop2" class="opacity-0 absolute w-full h-full cursor-pointer">
+                                    <div class="w-5 h-5 border border-gray-300 rounded flex items-center justify-center bg-white">
+                                        <div class="hidden w-3 h-3 bg-primary rounded-sm"></div>
+                                    </div>
+                                </div>
+                                <label for="shop2" class="cursor-pointer">オーガニックかき氷「shirokuma」</label>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="relative w-5 h-5 mr-2">
+                                    <input type="checkbox" id="shop3" class="opacity-0 absolute w-full h-full cursor-pointer">
+                                    <div class="w-5 h-5 border border-gray-300 rounded flex items-center justify-center bg-white">
+                                        <div class="hidden w-3 h-3 bg-primary rounded-sm"></div>
+                                    </div>
+                                </div>
+                                <label for="shop3" class="cursor-pointer">手作り雑貨「おやこのアトリエ」</label>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="relative w-5 h-5 mr-2">
+                                    <input type="checkbox" id="shop4" class="opacity-0 absolute w-full h-full cursor-pointer">
+                                    <div class="w-5 h-5 border border-gray-300 rounded flex items-center justify-center bg-white">
+                                        <div class="hidden w-3 h-3 bg-primary rounded-sm"></div>
+                                    </div>
+                                </div>
+                                <label for="shop4" class="cursor-pointer">春巻きママの"ほっこりスープ屋"</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <div class="relative w-5 h-5 mr-2">
+                            <input type="checkbox" id="newsletter" class="opacity-0 absolute w-full h-full cursor-pointer">
+                            <div class="w-5 h-5 border border-gray-300 rounded flex items-center justify-center bg-white">
+                                <div class="hidden w-3 h-3 bg-primary rounded-sm"></div>
+                            </div>
+                        </div>
+                        <label for="newsletter" class="cursor-pointer text-sm text-gray-600">今後のイベント情報をメールで受け取る</label>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition font-medium">予約を確定する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-['Pacifico'] text-primary mb-4">HARUMARU</h3>
+                    <p class="text-gray-300 mb-2">週末だけの、ちいさなごほうび</p>
+                    <p class="text-gray-300">杉並区○○公園ひろば</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">お問い合わせ</h3>
+                    <p class="text-gray-300 mb-2">メール: info@harumaru-market.jp</p>
+                    <p class="text-gray-300 mb-4">お問い合わせはメールにてお願いいたします。</p>
+                    <h3 class="text-lg font-bold mb-4">主催者情報</h3>
+                    <a href="#" class="text-primary hover:underline">春巻きママとは？</a>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">イベント情報</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#about" class="hover:text-white transition">開催概要</a></li>
+                        <li><a href="#shops" class="hover:text-white transition">出店者一覧</a></li>
+                        <li><a href="#guide" class="hover:text-white transition">楽しみ方ガイド</a></li>
+                        <li><a href="#benefits" class="hover:text-white transition">事前予約特典</a></li>
+                        <li><a href="#sns" class="hover:text-white transition">SNS</a></li>
+                        <li><a href="#reservation" class="hover:text-white transition">来場予約</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 text-sm mt-8">
+                &copy; 2025 HARUMARUマルシェ. All rights reserved.
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // チェックボックスのカスタムスタイル
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const customCheckbox = this.nextElementSibling;
+                const checkmark = customCheckbox.querySelector('div');
+                if (this.checked) {
+                    checkmark.classList.remove('hidden');
+                } else {
+                    checkmark.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

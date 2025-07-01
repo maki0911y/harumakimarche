@@ -57,17 +57,40 @@ body {
     align-items: center;
     text-align: center;
     padding: 0 20px;
+    position: relative; /* Add this for video positioning */
+    overflow: hidden; /* Hide overflowing video */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative; /* Ensure content is above video */
+    z-index: 1;
+    color: white; /* Adjust text color for better contrast on video */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add text shadow for readability */
 }
 
 .hero-content h1 {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: white; /* Change to white for contrast */
     margin-bottom: 1rem;
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    color: white; /* Change to white for contrast */
 }
 
 .cta-button {
