@@ -11,54 +11,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config={
-            theme:{
-                extend:{
-                    colors:{
-                        primary:'#FF9D6C',
-                        secondary:'#FFD8A9'
-                    },
-                    borderRadius:{
-                        'none':'0px',
-                        'sm':'4px',
-                        DEFAULT:'8px',
-                        'md':'12px',
-                        'lg':'16px',
-                        'xl':'20px',
-                        '2xl':'24px',
-                        '3xl':'32px',
-                        'full':'9999px',
-                        'button':'50px'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .font-pacifico {
-            font-family: 'Pacifico', cursive;
-        }
-        .font-noto {
-            font-family: 'Noto Sans JP', sans-serif;
-        }
-        .hero-section {
-            background-image: url('harumakilp/hero-image.png');
-            background-size: cover;
-            background-position: center;
-        }
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-    </style>
 </head>
 <body class="bg-white font-noto">
+    <div id="tsparticles"></div>
+    <audio id="bgm" src="bgm.mp3" loop></audio>
     <!-- ナビゲーション -->
     <nav class="bg-white shadow-sm py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="text-2xl font-['Pacifico'] text-primary">HARUMARU</div>
+            <div class="flex items-center space-x-4">
+                <div class="text-2xl font-['Pacifico'] text-primary">HARUMARU</div>
+                <button id="bgm-toggle">
+                    <i class="ri-volume-mute-line"></i>
+                </button>
+            </div>
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="#about" class="text-gray-700 hover:text-primary transition">イベント概要</a>
                 <a href="#shops" class="text-gray-700 hover:text-primary transition">出店者</a>
@@ -146,8 +111,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- 出店者1 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="harumakilp/shop-pan.png" alt="自家製酵母パン" class="w-full h-full object-cover object-top">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="harumakilp/shop-pan.png" alt="自家製酵母パン" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-bold mb-2">自家製酵母パン「pan cocoro」</h3>
@@ -156,8 +121,8 @@
                 </div>
                 <!-- 出店者2 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="harumakilp/shop-kakigori.png" alt="キッチンカー" class="w-full h-full object-cover object-top">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="harumakilp/shop-kakigori.png" alt="キッチンカー" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-bold mb-2">オーガニックかき氷「shirokuma」</h3>
@@ -166,8 +131,8 @@
                 </div>
                 <!-- 出店者3 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="harumakilp/shop-zakka.png" alt="手作り雑貨" class="w-full h-full object-cover object-top">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="harumakilp/shop-zakka.png" alt="手作り雑貨" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-bold mb-2">手作り雑貨「おやこのアトリエ」</h3>
@@ -176,8 +141,8 @@
                 </div>
                 <!-- 出店者4 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="harumakilp/shop-soup.png" alt="スープ" class="w-full h-full object-cover object-top">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="harumakilp/shop-soup.png" alt="スープ" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-bold mb-2">春巻きママの"ほっこりスープ屋"</h3>
@@ -399,20 +364,57 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="script.js"></script>
     <script>
-        // チェックボックスのカスタムスタイル
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const customCheckbox = this.nextElementSibling;
-                const checkmark = customCheckbox.querySelector('div');
-                if (this.checked) {
-                    checkmark.classList.remove('hidden');
-                } else {
-                    checkmark.classList.add('hidden');
+        tailwind.config={
+            theme:{
+                extend:{
+                    colors:{
+                        primary:'#FF9D6C',
+                        secondary:'#FFD8A9'
+                    },
+                    borderRadius:{
+                        'none':'0px',
+                        'sm':'4px',
+                        DEFAULT:'8px',
+                        'md':'12px',
+                        'lg':'16px',
+                        'xl':'20px',
+                        '2xl':'24px',
+                        '3xl':'32px',
+                        'full':'9999px',
+                        'button':'50px'
+                    }
                 }
-            });
-        });
+            }
+        }
     </script>
+    <style>
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        .font-noto {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .hero-section {
+            background-image: url('harumakilp/hero-image.png');
+            background-size: cover;
+            background-position: center;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        #tsparticles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -2; /* Ensure it's behind content but above body background */
+        }
+    </style>
 </body>
 </html>
