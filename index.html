@@ -13,7 +13,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white font-noto">
-    <div id="tsparticles"></div>
+    <div class="animated-background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape star"></div>
+    <div class="shape star"></div>
+    <div class="shape star"></div>
+    <div class="shape star"></div>
+    <div class="shape star"></div>
+    <div class="shape star"></div>
+    <div class="shape star"></div>
+    <div class="shape star"></div>
+</div>
     <audio id="bgm" src="bgm.mp3" loop></audio>
     <!-- ナビゲーション -->
     <nav class="bg-white shadow-sm py-4">
@@ -364,7 +381,6 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <script src="script.js"></script>
     <script>
         tailwind.config={
@@ -415,6 +431,59 @@
             left: 0;
             z-index: -2; /* Ensure it's behind content but above body background */
         }
+        /* ページの背景色を少しだけクリーム色に */
+body {
+    background-color: #FFFBF5;
+}
+
+.animated-background {
+    position: fixed; /* 画面に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* 画面全体の高さ */
+    overflow: hidden; /* はみ出した要素を非表示 */
+    z-index: -1; /* 他のコンテンツの背面に配置 */
+}
+
+.shape {
+    position: absolute; /* 位置を自由に指定できるように */
+    display: block;
+    list-style: none;
+    border-radius: 50%; /* 基本を円形に */
+    animation: float-up 25s linear infinite; /* アニメーションを適用 */
+    bottom: -150px; /* 画面の下からスタート */
+}
+.star {
+    /* 円形にする設定を上書きして、角を作る */
+    border-radius: 0;
+    /* clip-pathで星形に切り抜く */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* 個別の図形の設定 */
+.shape:nth-child(1){ left: 25%; width: 80px; height: 80px; background-color: rgba(255, 216, 169, 0.7); animation-delay: 0s; }
+.shape:nth-child(2){ left: 10%; width: 20px; height: 20px; background-color: rgba(169, 255, 218, 0.7); animation-delay: 2s; animation-duration: 12s; }
+.shape:nth-child(3){ left: 70%; width: 20px; height: 20px; background-color: rgba(255, 169, 221, 0.7); animation-delay: 4s; }
+.shape:nth-child(4){ left: 40%; width: 60px; height: 60px; background-color: rgba(169, 201, 255, 0.7); animation-delay: 0s; animation-duration: 18s; }
+.shape:nth-child(5){ left: 65%; width: 20px; height: 20px; background-color: rgba(255, 216, 169, 0.7); animation-delay: 0s; }
+.shape:nth-child(6){ left: 75%; width: 110px; height: 110px; background-color: rgba(255, 169, 221, 0.7); animation-delay: 3s; }
+.shape:nth-child(7){ left: 35%; width: 150px; height: 150px; background-color: rgba(169, 201, 255, 0.7); animation-delay: 7s; }
+.shape:nth-child(8){ left: 50%; width: 25px; height: 25px; background-color: rgba(169, 255, 218, 0.7); animation-delay: 15s; animation-duration: 45s; }
+.shape:nth-child(9) { left: 80%; width: 40px; height: 40px; background-color: rgba(255, 243, 169, 0.8); animation-delay: 1s; }
+.shape:nth-child(10){ left: 20%; width: 50px; height: 50px; background-color: rgba(169, 255, 243, 0.8); animation-delay: 5s; animation-duration: 22s; }
+.shape:nth-child(11){ left: 85%; width: 70px; height: 70px; background-color: rgba(221, 169, 255, 0.8); animation-delay: 8s; }
+.shape:nth-child(12){ left: 55%; width: 30px; height: 30px; background-color: rgba(169, 221, 255, 0.8); animation-delay: 6s; animation-duration: 15s; }
+.shape:nth-child(13){ left: 5%;  width: 25px; height: 25px; background-color: rgba(255, 243, 169, 0.8); animation-delay: 10s; }
+.shape:nth-child(14){ left: 90%; width: 90px; height: 90px; background-color: rgba(221, 169, 255, 0.8); animation-delay: 12s; }
+.shape:nth-child(15){ left: 15%; width: 100px; height: 100px; background-color: rgba(169, 221, 255, 0.8); animation-delay: 17s; }
+.shape:nth-child(16){ left: 60%; width: 45px; height: 45px; background-color: rgba(169, 255, 243, 0.8); animation-delay: 20s; animation-duration: 28s; }
+
+/* アニメーションの動き（下から上へ、少し回転しながら） */
+@keyframes float-up {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-1100px) rotate(720deg); opacity: 0; }
+}
     </style>
 </body>
 </html>
