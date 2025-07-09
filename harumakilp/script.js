@@ -84,66 +84,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // tsParticlesの初期化
-    tsParticles.load("tsparticles", {
-        fullScreen: {
-            enable: false, // 全画面表示はCSSで制御
-        },
-        particles: {
-            number: {
-                value: 30, // 少なめの粒子数
-            },
-            color: {
-                value: ["#FFD1DC", "#A9E4D7", "#FFFACD", "#FFB6C1"], // パステルカラー
-            },
-            shape: {
-                type: ["circle", "triangle", "star"], // 丸、三角、星
-            },
-            opacity: {
-                value: 0.6,
-                random: true,
-            },
-            size: {
-                value: 5,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 2,
-                    size_min: 0.1,
-                    sync: false,
-                },
-            },
-            links: {
-                enable: false, // 線は表示しない
-            },
-            move: {
-                enable: true,
-                speed: 0.5, // ゆっくり動く
-                direction: "none",
-                random: true,
-                straight: false,
-                out_mode: "out",
-                bounce: false,
-                attract: {
-                    enable: false,
-                    rotateX: 600,
-                    rotateY: 1200,
-                },
-            },
-        },
-        interactivity: {
-            detectsOn: "canvas",
-            events: {
-                onHover: {
-                    enable: false, // ホバー時のインタラクションなし
-                },
-                onClick: {
-                    enable: false, // クリック時のインタラクションなし
-                },
-                resize: true,
-            },
-        },
-        detectRetina: true,
+
+    // --- Shop Modal ---
+    const modal = document.getElementById('shop-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalDescription = document.getElementById('modal-description');
+    const modalClose = document.getElementById('modal-close');
+    const shopItems = document.querySelectorAll('.shop-item');
+
+    shopItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const title = item.dataset.title;
+            const image = item.dataset.image;
+            const description = item.dataset.description;
+
+            modalTitle.textContent = title;
+            modalImage.src = image;
+            modalDescription.textContent = description;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('modal-open');
+        });
     });
 
+    const closeModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.classList.remove('modal-open');
+    }
+
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
 });
