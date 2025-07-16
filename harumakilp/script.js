@@ -122,4 +122,44 @@ document.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }
     });
+
+    // --- Fortune Cookie Game ---
+    const fortuneCookie = document.getElementById('fortune-cookie');
+    const fortuneModal = document.getElementById('fortune-modal');
+    const fortuneMessage = document.getElementById('fortune-message');
+    const fortuneModalClose = document.getElementById('fortune-modal-close');
+
+    const fortunes = [
+        "今日は新しいことに挑戦するのに最適な日！",
+        "思わぬ人から嬉しい連絡があるかも。",
+        "ちょっとした休憩が、大きなひらめきに繋がりそう。",
+        "笑顔を心がけると、幸運が舞い込んでくるでしょう。",
+        "美味しいものを食べると、エネルギーが満ち溢れます。",
+        "探していたものが見つかる予感。",
+        "周りの人に親切にすると、良いことがありそう。",
+        "小さな成功体験が、自信に繋がる一日。"
+    ];
+
+    fortuneCookie.addEventListener('click', () => {
+        alert('クッキーがクリックされました！'); // デバッグ用アラート
+        const randomIndex = Math.floor(Math.random() * fortunes.length);
+        fortuneMessage.textContent = fortunes[randomIndex];
+        fortuneModal.classList.remove('hidden');
+        fortuneModal.classList.add('flex');
+        document.body.classList.add('modal-open');
+    });
+
+    const closeFortuneModal = () => {
+        fortuneModal.classList.add('hidden');
+        fortuneModal.classList.remove('flex');
+        document.body.classList.remove('modal-open');
+    }
+
+    fortuneModalClose.addEventListener('click', closeFortuneModal);
+
+    fortuneModal.addEventListener('click', (e) => {
+        if (e.target === fortuneModal) {
+            closeFortuneModal();
+        }
+    });
 });
